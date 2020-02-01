@@ -1,0 +1,10 @@
+FROM php:7.4.2-apache
+
+RUN apt-get update && apt-get install -y libicu-dev
+
+RUN docker-php-ext-install intl
+RUN docker-php-ext-install opcache
+
+COPY ./apache.conf /etc/apache2/sites-available/000-default.conf
+
+WORKDIR /app
