@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y libicu-dev
 
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install opcache
+RUN a2enmod rewrite
 
 COPY ./apache.conf /etc/apache2/sites-available/000-default.conf
 
